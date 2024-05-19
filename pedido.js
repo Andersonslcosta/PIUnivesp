@@ -23,6 +23,8 @@ document.getElementById('finalizarPedidoBtn').addEventListener('click', function
 
     if (produtosNoCarrinho.length > 0) {
         gerarPDF(produtosNoCarrinho);
+        // Zera a quantidade dos produtos no carrinho
+        zerarQuantidadeNoCarrinho();
     } else {
         alert('O carrinho está vazio!');
     }
@@ -149,4 +151,15 @@ function gerarPDF(produtos) {
     doc.textWithLink("Envie seu pedido para o nosso WhatsApp", margin, y, {url: linkWhatsApp});
 
     doc.save('recibo.pdf');
+}
+
+// Função para zerar a quantidade dos produtos no carrinho
+function zerarQuantidadeNoCarrinho() {
+    const produtos = document.querySelectorAll('tbody tr');
+
+    produtos.forEach(produto => {
+        const quantidadeElement = produto.querySelector('.qtdProduto');
+        // Ajuste: Use innerHTML para limpar o conteúdo do elemento
+        quantidadeElement.innerHTML = '0'; 
+    });
 }
