@@ -1,0 +1,121 @@
+.duvidas {
+  background: #716cff;
+  padding: 30px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  margin-top: 10px; /* Espaçamento entre o header e a div */
+  letter-spacing: 3px;
+}
+
+.contatoInfo,
+.midiaSociais {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: justify;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.contatoInfo > div,
+.midiaSociais > div {
+  flex: 1;
+  margin: 20px 0;
+  min-width: 300px; /* Para que os itens não fiquem muito estreitos em telas menores */
+}
+
+.contatoInfo h3,
+.midiaSociais h3,
+.horarioInfo h3,
+.contatoInfo p,
+.midiaSociais p {
+  margin-left: 20px; /* Define a mesma margem à esquerda */
+  margin-right: 40px; /* Define a mesma margem à direita */
+}
+
+.contatoInfo h3,
+.midiaSociais h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.contatoInfo p,
+.midiaSociais p{
+  font-size: 14px;
+  color: #6e6e6e;
+  margin-bottom: 10px;
+  line-height: 1.8;
+  margin-left: 40px; /* Define a mesma margem à esquerda */
+  margin-right: 40px; /* Define a mesma margem à direita */
+}
+
+.contatoInfo .emailAdress,
+.contatoInfo .telefoneNumber,
+.contatoInfo .chatNumber,
+.midiaSociais .instagram,
+.midiaSociais .linktree,
+.midiaSociais .grupoWhats {
+  font-weight: bold;
+  color: #000000;
+}
+
+.contatoInfo .chatNumber a,
+.midiaSociais .instagramLink a,
+.midiaSociais .linktreeLink a,
+.midiaSociais .grupoWhats a {
+  color: #716cff;
+  text-decoration: none;
+}
+
+.contatoInfo .chatNumber a:hover,
+.midiaSociais .instagramLink a:hover,
+.midiaSociais .linktreeLink a:hover,
+.midiaSociais .grupoWhats a:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  border-top: 2px solid #b9b9b9;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.midias {
+  border-radius: #666;
+  background: #e7e6ff;
+  padding: 20px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.midiaSociais {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: justify;
+  flex-wrap: wrap;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+/* Ajustes específicos para a classe .horarioInfo */
+.horarioInfo {
+  margin-left: 20px;
+}
+
+.horarioInfo p{
+  margin-left: 40px;
+  margin-bottom: 40px;
+}

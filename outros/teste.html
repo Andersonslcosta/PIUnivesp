@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Confeitaria Bolos da Helen</title>
+    <link rel="stylesheet" href="Contato.css">
+    <link rel="stylesheet" href="teste.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img class="cabecalho_logo" src="img/logo2.jpeg" title="Home" alt="Confeitaria Bolos da Helen">
+    </div>
+    <header class="cabecalho">
+        <a href="teste.html"></a>
+        <nav id="MenuItens">
+            <ul class="cabecalho_menu">
+                <li class="cabecalho__item-menu"><a href="home.html">Home</a></li>
+                <li class="cabecalho__item-menu"><a href="teste.html">Produtos</a></li>
+                <li class="cabecalho__item-menu"><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="main-content">
+            <div class="carrinho">Carrinho de Compras</div>
+            <section id="carrinho">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Massa</th>
+                            <th>Tamanho</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <div class="separator"></div>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/banoffe.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Banoffe</div>
+                                        <div class="categoria">Tortas</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td Massa="massa">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione a Massa</option>
+                                    <option value="Branca">Branca</option>
+                                    <option value="Integral">Integral</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td Tamanho="tamanho">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione o Tamanho</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="G">G</option>
+                                    <option value="GG">GG</option>
+                                    <option value="1 Fatia">1 Fatia</option>
+                                    <option value="4 Fatias">4 Fatias</option>
+                                    <option value="8 Fatias">8 Fatias</option>
+                                    <option value="12 Fatias">12 Fatias</option>
+                                    <option value="16 Fatias">16 Fatias</option>
+                                    <option value="20 Fatias">20 Fatias</option>
+                                    <option value="24 Fatias">24 Fatias</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+
+                            <td data-preco="120.00">R$ 120,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp1"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/Bolo_de_Cenoura.jpeg" alt="Imagem de um bolo de cenoura" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Bolo de Cenoura</div>
+                                        <div class="categoria">Bolos</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td Massa="massa">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione a Massa</option>
+                                    <option value="Branca">Branca</option>
+                                    <option value="Integral">Integral</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td Tamanho="tamanho">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione o Tamanho</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="G">G</option>
+                                    <option value="GG">GG</option>
+                                    <option value="1 Fatia">1 Fatia</option>
+                                    <option value="4 Fatias">4 Fatias</option>
+                                    <option value="8 Fatias">8 Fatias</option>
+                                    <option value="12 Fatias">12 Fatias</option>
+                                    <option value="16 Fatias">16 Fatias</option>
+                                    <option value="20 Fatias">20 Fatias</option>
+                                    <option value="24 Fatias">24 Fatias</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td data-preco="50.00">R$ 50,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp2"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/Bolo de maçã.jpeg" alt="Imagem de umbolo de maça" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Bolo de Maça</div>
+                                        <div class="categoria">Bolos</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td Massa="massa">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione a Massa</option>
+                                    <option value="Branca">Branca</option>
+                                    <option value="Integral">Integral</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td Tamanho="tamanho">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione o Tamanho</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="G">G</option>
+                                    <option value="GG">GG</option>
+                                    <option value="1 Fatia">1 Fatia</option>
+                                    <option value="4 Fatias">4 Fatias</option>
+                                    <option value="8 Fatias">8 Fatias</option>
+                                    <option value="12 Fatias">12 Fatias</option>
+                                    <option value="16 Fatias">16 Fatias</option>
+                                    <option value="20 Fatias">20 Fatias</option>
+                                    <option value="24 Fatias">24 Fatias</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp3"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/bolofubagoiabada.jpg" alt="Imagem de um bolo de Fuba com Goiabada " width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Bolo de Fuba com Goiabada</div>
+                                        <div class="categoria">Bolos</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td Massa="massa">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione a Massa</option>
+                                    <option value="Branca">Branca</option>
+                                    <option value="Integral">Integral</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td Tamanho="tamanho">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione o Tamanho</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="G">G</option>
+                                    <option value="GG">GG</option>
+                                    <option value="1 Fatia">1 Fatia</option>
+                                    <option value="4 Fatias">4 Fatias</option>
+                                    <option value="8 Fatias">8 Fatias</option>
+                                    <option value="12 Fatias">12 Fatias</option>
+                                    <option value="16 Fatias">16 Fatias</option>
+                                    <option value="20 Fatias">20 Fatias</option>
+                                    <option value="24 Fatias">24 Fatias</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp4"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/coxinha.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Coxinha</div>
+                                        <div class="categoria">Doces</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td Massa="massa">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione a Massa</option>
+                                    <option value="Branca">Branca</option>
+                                    <option value="Integral">Integral</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td Tamanho="tamanho">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione o Tamanho</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="G">G</option>
+                                    <option value="GG">GG</option>
+                                    <option value="1 Fatia">1 Fatia</option>
+                                    <option value="4 Fatias">4 Fatias</option>
+                                    <option value="8 Fatias">8 Fatias</option>
+                                    <option value="12 Fatias">12 Fatias</option>
+                                    <option value="16 Fatias">16 Fatias</option>
+                                    <option value="20 Fatias">20 Fatias</option>
+                                    <option value="24 Fatias">24 Fatias</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp5"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/pudim.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Pudim</div>
+                                        <div class="categoria">Pudim</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td Massa="massa">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione a Massa</option>
+                                    <option value="Branca">Branca</option>
+                                    <option value="Integral">Integral</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td Tamanho="tamanho">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione o Tamanho</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="G">G</option>
+                                    <option value="GG">GG</option>
+                                    <option value="1 Fatia">1 Fatia</option>
+                                    <option value="4 Fatias">4 Fatias</option>
+                                    <option value="8 Fatias">8 Fatias</option>
+                                    <option value="12 Fatias">12 Fatias</option>
+                                    <option value="16 Fatias">16 Fatias</option>
+                                    <option value="20 Fatias">20 Fatias</option>
+                                    <option value="24 Fatias">24 Fatias</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp6"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/redvelvet.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Bolo RedVelvet</div>
+                                        <div class="categoria">Bolos</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td Massa="massa">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione a Massa</option>
+                                    <option value="Branca">Branca</option>
+                                    <option value="Integral">Integral</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td Tamanho="tamanho">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione o Tamanho</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="G">G</option>
+                                    <option value="GG">GG</option>
+                                    <option value="1 Fatia">1 Fatia</option>
+                                    <option value="4 Fatias">4 Fatias</option>
+                                    <option value="8 Fatias">8 Fatias</option>
+                                    <option value="12 Fatias">12 Fatias</option>
+                                    <option value="16 Fatias">16 Fatias</option>
+                                    <option value="20 Fatias">20 Fatias</option>
+                                    <option value="24 Fatias">24 Fatias</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp7"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/tortadelimao.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Torta de Limão</div>
+                                        <div class="categoria">Tortas</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td Massa="massa">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione a Massa</option>
+                                    <option value="Branca">Branca</option>
+                                    <option value="Integral">Integral</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td Tamanho="tamanho">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione o Tamanho</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="G">G</option>
+                                    <option value="GG">GG</option>
+                                    <option value="1 Fatia">1 Fatia</option>
+                                    <option value="4 Fatias">4 Fatias</option>
+                                    <option value="8 Fatias">8 Fatias</option>
+                                    <option value="12 Fatias">12 Fatias</option>
+                                    <option value="16 Fatias">16 Fatias</option>
+                                    <option value="20 Fatias">20 Fatias</option>
+                                    <option value="24 Fatias">24 Fatias</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp8"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/tortamaracujachoco.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Torta de Maracujá com Chocolate</div>
+                                        <div class="categoria">Tortas</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td Massa="massa">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione a Massa</option>
+                                    <option value="Branca">Branca</option>
+                                    <option value="Integral">Integral</option>
+                                    <option value="Chocolate">Chocolate</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td Tamanho="tamanho">
+                                <select>
+                                    <option value="" selected disabled hidden>Selecione o Tamanho</option>
+                                    <option value="P">P</option>
+                                    <option value="M">M</option>
+                                    <option value="G">G</option>
+                                    <option value="GG">GG</option>
+                                    <option value="1 Fatia">1 Fatia</option>
+                                    <option value="4 Fatias">4 Fatias</option>
+                                    <option value="8 Fatias">8 Fatias</option>
+                                    <option value="12 Fatias">12 Fatias</option>
+                                    <option value="16 Fatias">16 Fatias</option>
+                                    <option value="20 Fatias">20 Fatias</option>
+                                    <option value="24 Fatias">24 Fatias</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp9"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>                                             
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="footer-container">
+        <a id="about" href="#project"></a>
+        <p>&copy; 2024 - by DRP01-PJI110-SALA-003GRUPO-019</p>
+        <p>Anderson Santana Leite Costa; Name 2; Name 3; Name 4; Name 5; Name 6; Name 7; Name 8</p>
+        <p class="rodape__copyright">&copy; Copyright Confeitaria Bolos da Helen</p>
+        <img src="img/logo.jpeg" alt="Logo da Confeitaria Bolos da Helen" class="rodape__logo">
+    </footer>
+</body>
+</html>

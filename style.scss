@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+
+body {
+  background: #f6f6f6;
+  font-family: 'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  >header {
+    color: white;
+    background-color: #272B3A87;
+    font-size: 20px;
+    padding: 30px 0;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+  }
+
+  >main {
+    background-color: rgb(255, 255, 255);    
+
+    .page-title {
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 50px 0;
+      text-align: center;
+      padding: 20px 20px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      background: #716cff;
+      letter-spacing: 5px;
+      color: white;
+    }
+    .content {
+      display: flex;
+
+      section {
+        flex: 1;
+        padding: 30px 30px;
+      }
+      aside {
+        min-width: 250px;
+        padding: 20px 20px;
+      }
+    }
+  }
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Estilos para o cabeçalho */
+.cabecalho {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #272B3A87;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0; /* Remover todo o preenchimento */
+  margin: 0; /* Remover toda a margem */
+  height: 100px; /* Definir a altura do cabeçalho */
+  position: relative; /* Adiciona posição relativa */
+}
+
+.cabecalho_logo {
+  height: 80px; /* Definir a altura da imagem como 80 pixels */
+  width: 100px; /* Definir a largura da imagem como 100 pixels */
+  margin-left: 25px; /* Manter a mesma margem à esquerda */
+}
+
+.cabecalho_menu {
+  list-style-type: none;
+  margin-right: 40px;
+}
+
+.cabecalho_menu li {
+  display: inline-block;
+}
+
+.cabecalho_menu li a {
+  text-decoration: none; /* Remover a decoração dos links */
+  color: white;
+  font-size: 15px;
+  margin-right: 40px; /* Adicionar espaçamento entre os itens */
+  display: inline-block;
+}
+
+.cabecalho_menu li:last-child a {
+  margin-right: 0; /* Remover margem direita do último item */
+}
+
+.cabecalho_menu_button {
+  display: none; /* Ocultar o botão do menu */
+  margin-right: 20px;
+}
+
+.cabecalho_nome {
+  position: absolute; /* Torna o elemento absoluto */
+  left: 50%; /* Define a posição esquerda como 50% */
+  transform: translateX(-50%); /* Move o elemento de volta metade de sua largura */
+  color: white; /* Cor do texto */
+}
+
+/* Media query para tela menor que 910px */
+@media screen and (max-width: 960px) {
+  .cabecalho_menu {
+      display: none;
+  }
+
+  .cabecalho_menu_button {
+    display: none; /* Ocultar o botão do menu */
+    margin-right: 20px;
+    background-color: #8d8d8d;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    border: 2px  rgb(139, 139, 139); /* Adiciona borda sólida preta */
+    border-radius: 10px; /* Arredonda os cantos com raio de 10px */
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: auto; /* Adiciona margem à direita */
+  }
+
+  .cabecalho_menu.show-menu {
+      display: block;
+  }
+
+  .cabecalho_menu.show-menu li {
+      display: block;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    tr {
+      border-bottom: 3px solid #eee;
+      margin-right: 50px;
+      th {
+        text-align: left;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+        color: #b9b9b9;
+      }
+    }
+  }
+  tbody {
+    tr {
+      border-bottom: 3px solid #eee;
+
+      &:last-child {
+        border: 0;
+      }
+
+      td {
+        padding: 30px 0;
+      }
+    }
+  }
+}
+
+.product {
+  display: flex;
+  align-items: center;
+
+  img {
+    border-radius: 6px;
+  }
+
+  .info {
+    margin-left: 20px;
+    .name {
+      font-size: 15px;
+      text-transform: uppercase;
+      font-family: 'Lato', sans-serif;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .category {
+      color: #666;
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-family: 'Lato', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+  }
+}
+.qty {
+  background: #eee;
+  display: inline-flex;
+  padding: 0 0;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 60px;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 30px;
+
+  span {
+    margin: 0 10px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    padding: 0 10px;
+    font-size: 20px;
+    height: 100%;
+
+    &:hover {
+      background: #ddd;
+    }
+  }
+}
+.remove {
+  background: #eee;
+  border: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+
+  &:hover {
+    background: #ddd;
+  }
+}
+
+aside {
+  max-width: 50%; /* Adjust the percentage as needed */
+  margin-left: 30px; /* Maintain desired margin */
+  text-transform: uppercase;
+  font-family: 'Lato', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  .box {
+    margin-bottom: 15px;
+    border: 1px transparent #ccc;
+    background: #eee;
+    color: #222;
+
+    header {
+      padding: 25px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      background-color: #716cff;
+      color: white;
+    }
+    .info {
+      padding: 20px;
+      font-size: 12px;
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #6d6d6d;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+      button {
+        color: #8783ff;
+        background: transparent;
+        border: 0;
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+      }
+    }
+      footer {
+        > div {
+          padding: 20px;
+          background: #272B3A87;
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+  }
+  > button {
+    margin-bottom: 8px;
+    border: 0;
+    padding: 15px 0;
+    color: white;
+    background: #716cff;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Lato', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    &:hover {
+      background: #272B3A87;
+    }
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+.content {
+  padding-bottom: 100px; /* Altura do footer */
+}
+
+.footer-container {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #716cff;
+  color: white;
+  font-size: small;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000; /* Garante que o footer fique acima do conteúdo, se houver */
+}
+
+
+
+.footer-container p {
+  margin: 5px 0;
+}
+
+.footer-container .rodape__logo {
+  width: auto;
+  height: 50px;
+}
+
+@media (max-width: 949px) {
+  .wrapper {
+  min-width: 950px; /* Define a largura mínima para 900px */
+  width: 100%; /* Garante que a largura ocupe toda a largura disponível */
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  }
+}
+
+thead th:nth-child(2),
+thead th:nth-child(3),
+thead th:nth-child(4),
+tbody td:nth-child(2),
+tbody td:nth-child(3),
+tbody td:nth-child(4) {
+  padding-left: 60px; /* Ajuste o valor conforme necessário */
+}
+

@@ -1,0 +1,369 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  background: #f6f6f6;
+  font-family: "Lato", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+}
+
+.logoContainer {
+    height: 100px;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    margin-right: 0;
+    padding: 10px 0px;
+}
+
+.logoCabecalho {
+    max-height: 80px; /* Define a altura máxima do logo como 100px */
+    width: 80px; /* Define a largura do logo como 80 pixels */
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    margin-right: auto; /* Margem à direita automática */
+}
+
+.logoCabecalho img {
+    max-height: 80px; /* Define a altura máxima da imagem como 100% do contêiner */
+    width: auto; /* Mantém a proporção da largura */
+    margin-left: 0px;
+}
+  
+span.cabecalho_nome {
+    color: white;
+    font-size: 1.0rem; /* Ajuste o tamanho do texto conforme necessário */
+    position: absolute; /* Define a posição como absoluta */
+    left: 50%; /* Define a posição horizontalmente no centro */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+}
+  
+.cabecalho {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(39, 43, 58, 0.5294117647);
+    font-size: 1.0rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    height: 80px;
+}
+  
+.cabecalho_menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end; /* Alinha os itens à direita */
+}
+  
+.cabecalho_menu li {
+    display: inline-block;
+    margin-right: 20px; /* Espaçamento entre os itens */
+}
+  
+.cabecalho_menu li:last-child {
+    margin-right: 0; /* Remove a margem direita do último item */
+}
+  
+.cabecalho_menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    padding: 20px 20px;
+}
+  
+@media (max-width: 910px) {
+    .cabecalho_menu {
+        display: none; /* Oculta o menu principal */
+        flex-direction: column; /* Alinha os itens do menu em coluna */
+        position: absolute; /* Define a posição como absoluta */
+        top: 100%; /* Define a distância do topo */
+        right: 20px; /* Define a margem direita */
+        background-color: rgba(39, 43, 58, 0.5294117647); /* Cor de fundo do menu */
+        z-index: 999; /* Define a ordem de empilhamento */
+        padding: 10px;
+    }
+
+    .cabecalho_menu li {
+        margin: 10px 0; /* Espaçamento entre os itens */
+    }
+
+    .cabecalho_menu li:last-child {
+        margin-bottom: 0; /* Remove a margem inferior do último item */
+    }
+
+    .cabecalho_menu li a {
+        display: block; /* Faz os itens do menu ocuparem a largura total */
+        padding: 10px 20px; /* Espaçamento interno dos itens */
+        text-align: center; /* Centraliza o texto */
+        color: white; /* Cor do texto */
+        text-decoration: none; /* Remove o sublinhado */
+    }
+
+    .cabecalho_menu_button {
+        display: block; /* Torna o botão "Menu" visível em telas menores */
+    }
+
+    .cabecalho {
+        height: auto; /* Altura automática para acomodar o conteúdo */
+    }
+
+    main {
+        padding: 20px; /* Adiciona um espaçamento interno ao conteúdo principal */
+    }
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead {
+    tr {
+      border-bottom: 3px solid #eee;
+      margin-right: 50px;
+      th {
+        text-align: left;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+        color: #b9b9b9;
+      }
+    }
+  }
+  tbody {
+    tr {
+      border-bottom: 3px solid #eee;
+
+      &:last-child {
+        border: 0;
+      }
+
+      td {
+        padding: 30px 0;
+      }
+    }
+  }
+}
+
+.product {
+  display: flex;
+  align-items: center;
+
+  img {
+    border-radius: 6px;
+  }
+
+  .info {
+    margin-left: 20px;
+    .name {
+      font-size: 15px;
+      text-transform: uppercase;
+      font-family: 'Lato', sans-serif;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .category {
+      color: #666;
+      font-size: 10px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-family: 'Lato', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+  }
+}
+.qty {
+  background: #eee;
+  display: inline-flex;
+  padding: 0 0;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 60px;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 30px;
+
+  span {
+    margin: 0 10px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    padding: 0 10px;
+    font-size: 20px;
+    height: 100%;
+
+    &:hover {
+      background: #ddd;
+    }
+  }
+}
+.remove {
+  background: #eee;
+  border: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+
+  &:hover {
+    background: #ddd;
+  }
+}
+
+aside {
+  max-width: 50%; /* Adjust the percentage as needed */
+  margin-left: 30px; /* Maintain desired margin */
+  text-transform: uppercase;
+  font-family: 'Lato', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  .box {
+    margin-bottom: 15px;
+    border: 1px transparent #ccc;
+    background: #eee;
+    color: #222;
+
+    header {
+      padding: 25px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      background-color: #716cff;
+      color: white;
+    }
+    .info {
+      padding: 20px;
+      font-size: 12px;
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #6d6d6d;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+      button {
+        color: #8783ff;
+        background: transparent;
+        border: 0;
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+      }
+    }
+      footer {
+        > div {
+          padding: 20px;
+          background: #272B3A87;
+          color: white;
+          font-size: 14px;
+          font-weight: bold;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+  }
+  > button {
+    margin-bottom: 8px;
+    border: 0;
+    padding: 15px 0;
+    color: white;
+    background: #716cff;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Lato', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    &:hover {
+      background: #272B3A87;
+    }
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+.content {
+  padding-bottom: 100px; /* Altura do footer */
+}
+
+.footer-container {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #716cff;
+  color: white;
+  font-size: small;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000; /* Garante que o footer fique acima do conteúdo, se houver */
+}
+
+
+
+.footer-container p {
+  margin: 5px 0;
+}
+
+.footer-container .rodape__logo {
+  width: auto;
+  height: 50px;
+}
+
+@media (max-width: 949px) {
+  .wrapper {
+  min-width: 950px; /* Define a largura mínima para 900px */
+  width: 100%; /* Garante que a largura ocupe toda a largura disponível */
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  }
+}
+
+thead th:nth-child(2),
+thead th:nth-child(3),
+thead th:nth-child(4),
+tbody td:nth-child(2),
+tbody td:nth-child(3),
+tbody td:nth-child(4) {
+  padding-left: 60px; /* Ajuste o valor conforme necessário */
+}
+

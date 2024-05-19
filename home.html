@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Confeitaria Bolos da Helen</title>
+    <link rel="stylesheet" href="home.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carrinhoIcon = document.querySelector('img[src="assets/img2/bag-handle-outline (1).svg"]');
+            if (carrinhoIcon) {
+                carrinhoIcon.addEventListener('click', function() {
+                    window.location.href = 'carrinho.html';
+                });
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="pedido.js" defer></script>
+    <script src="scroll.js" defer></script>
+
+</head>
+<body>
+    <div class="logo-container">
+        <img class="cabecalho_logo" src="img/logo2.jpeg" title="Home" alt="Confeitaria Bolos da Helen">
+    </div>
+    <header class="cabecalho">
+        <nav id="MenuItens">
+            <ul class="cabecalho_menu">
+                <li class="cabecalho__item-menu"><a href="home.html">Home</a></li>
+                <li class="cabecalho__item-menu"><a href="carrinho.html">Produtos</a></li>
+                <li class="cabecalho__item-menu"><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main> 
+        <div class="page-title">Bolos da Helen</div>
+        <div class="content">
+            <section id="descricao">
+                <div class="col-2">
+                    <p>A Confeitaria Bolos da Helen é um local especializado na produção de bolos artesanais, tortas deliciosas e doces personalizados. Fundada em 2010, tornou-se um ponto de referência para os amantes da culinária doce em toda a região. Nossa confeitaria é focada no delivery, para o público de Mauá e região. Trabalhamos com ingredientes frescos e de alta qualidade, garantindo sempre o sabor mais delicioso em cada pedaço. Venha nos fazer uma visita e descubra por que somos conhecidos como a melhor confeitaria da região. Experimente nossos deliciosos bolos e doces e faça parte da nossa história!</p>
+                    <h3>Delicie-se com nossos bolos e doces artesanais!</h3>
+                    <p>Descubra uma explosão de sabores feitos com amor e cuidado. Desde bolos decorados até docinhos irresistíveis, temos opções para satisfazer todos os paladares. <br> Experimente agora e deixe-se levar pela tentação dos nossos deliciosos quitutes. Faça já sua encomenda e surpreenda-se com o sabor!</p>
+                    <br>
+                    
+                    <div class="image-carousel">
+                        <div class="image-wrapper">
+                            <img src="img/banoffe.jpg" alt="Imagem de torta banoffe">
+                            <img src="img/Bolo de maçã.jpeg" alt="Imagem de bolo de maçã">
+                            <img src="img/Bolo_de_Cenoura.jpeg" alt="Imagem de bolo de cenoura">
+                            <img src="img/bolo.jpg" alt="Imagem de um bolo">
+                            <img src="img/bolofubagoiabada.jpg" alt="Imagem de bolo de fubá com goiabada">
+                            <img src="img/coxinha.jpg" alt="Imagem de coxinha">
+                            <img src="img/pudim.jpg" alt="Imagem de Pudim">
+                            <img src="img/redvelvet.jpg" alt="Imagem de Bolo RedVelvet">
+                            <img src="img/tortadelimao.jpg" alt="Imagem de Torta de Limão">
+                            <img src="img/tortamaracujachoco.jpg" alt="Imagem de Torta de Maracujá">
+                        </div>
+                        <div class="carousel-controls">
+                            <span class="arrow prev">&#8592;</span>
+                            <span class="arrow next">&#8594;</span>
+                        </div>
+                    </div>                
+                    <br>
+                    <a href="carrinho.html" class="btn"><b>Acesse nossos produtos, confira os valores e faça seu pedido <span class="arrow">&#8594;</span></b></a>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="footer-container">
+        <a id="about" href="#project"></a>
+        <p>&copy; 2024 - by DRP01-PJI110-SALA-003GRUPO-019</p>
+        <p>Anderson Santana Leite Costa; Name 2; Name 3; Name 4; Name 5; Name 6; Name 7; Name 8</p>
+        <p class="rodape__copyright">&copy; Copyright Confeitaria Bolos da Helen</p>
+        <img src="img/logo.jpeg" alt="Logo da Confeitaria Bolos da Helen" class="rodape__logo">
+    </footer>
+</body>
+</html>

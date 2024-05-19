@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Confeitaria Bolos da Helen</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+        <script src="style.js" defer></script> <!-- Funcionalidade e Cálculo do Carrinho!-->
+        <script src="scroll.js" defer></script> <!-- Botão Menu!-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script> <!-- Para trazer imagem para um PDF!-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script> <!-- Biblioteca para Gerar PDF!-->
+        <script src="pedido.js" defer></script> <!-- Para gerar o PDF da compra!-->
+    </head>
+<body>
+<!-- cabeçalho início -->
+    <header class="cabecalho">
+        <a href="carrinho.html">
+            <img class="cabecalho_logo" src="img/logo.ico" title="Ir para a página inicial da Confeitaria Bolos da Helen" alt="Confeitaria Bolos da Helen">
+        </a>
+        <span class="cabecalho_nome">Confeitaria Bolos da Helen</span>
+        <button class="cabecalho_menu_button">Menu</button>
+        <nav>
+            <ul class="cabecalho_menu">
+                <li class="cabecalho__item-menu"><a href="home.html">HOME</a></li>
+                <li class="cabecalho__item-menu"><a href="carrinho.html">Produtos</a></li>
+                <li class="cabecalho__item-menu"><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+<!-- cabeçalho fim -->
+    <main> 
+        <div class="page-title"> Carrinho de Compras</div>
+        <div class="content">
+            <section>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                            <th>Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/banoffe.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Banoffe</div>
+                                        <div class="categoria">Tortas</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-preco="120.00">R$ 120,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp1"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/Bolo_de_Cenoura.jpeg" alt="Imagem de um bolo de cenoura" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Bolo de Cenoura</div>
+                                        <div class="categoria">Bolos</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-preco="50.00">R$ 50,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp2"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/Bolo de maçã.jpeg" alt="Imagem de umbolo de maça" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Bolo de Maça</div>
+                                        <div class="categoria">Bolos</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp3"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/bolofubagoiabada.jpg" alt="Imagem de um bolo de Fuba com Goiabada " width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Bolo de Fuba com Goiabada</div>
+                                        <div class="categoria">Bolos</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp4"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/coxinha.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Coxinha</div>
+                                        <div class="categoria">Doces</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp5"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/pudim.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Pudim</div>
+                                        <div class="categoria">Pudim</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp6"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/redvelvet.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Bolo RedVelvet</div>
+                                        <div class="categoria">Bolos</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp7"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/tortadelimao.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Torta de Limão</div>
+                                        <div class="categoria">Tortas</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp8"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product">
+                                    <img src="img/tortamaracujachoco.jpg" alt="Imagem de uma torta banoffe" width="100" height="130">
+                                    <div class="info">
+                                        <div class="name">Torta de Maracujá com Chocolate</div>
+                                        <div class="categoria">Tortas</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-preco="80.00">R$ 80,00</td>
+                            <td>
+                                <div class="qtde">
+                                    <button data-action="diminuir"><i class="bx bx-minus"></i></button>
+                                    <span class="qtdProduto">0</span>
+                                    <button data-action="aumentar"><i class="bx bx-plus"></i></button>
+                                </div>
+                            </td>
+                            <td class="valor-Total" id="valorTotalp9"></td>
+                            <td>
+                                <button class="remove"><i class="bx bx-x"></i></button>
+                            </td>
+                        </tr>
+                        
+                                             
+                    </tbody>
+                </table>
+            </section>
+            <aside> 
+                <div class="box">
+                    <header>Resumo do Pedido</header>
+                    <div class="info">
+                        <div><span>Sub-Total</span><span id="subtotal"></span></div>
+                        <div><span>Frete</span><span id="frete"></span></div>
+                        <div><span>Desconto</span><span id="desconto"></span></div>
+                    </div>
+                    <footer>    
+                        <div><span>Total</span><span id="total"></span></div>
+                    </footer>
+                </div>
+                <button id="limparCarrinhoBtn"> Limpar Carrinho</button>
+                <button id="finalizarPedidoBtn">Finalizar Pedido</button>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer-container">
+        <a id="about" href="#project"></a>
+        <p>Copyright &copy; 2024 - by DRP01-PJI110-SALA-003GRUPO-019</p>
+        <p>Anderson Santana Leite Costa; Name 2; Name 3; Name 4; Name 5; Name 6; Name 7; Name 8</p>
+        <p class="rodape__copyright">&copy; Copyright Confeitaria Bolos da Helen</p>
+        <img src="img/logo.jpeg" alt="logo da Confeitaria Bolos da Helen" class="rodape__logo">
+    </footer>
+
+</body>
+</html>

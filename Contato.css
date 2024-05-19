@@ -1,0 +1,141 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  background: #ffffff;
+  font-family: "Lato", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.logo-container {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
+}
+
+.cabecalho_logo {
+  height: 100px;
+  width: auto;
+}
+
+.cabecalho {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(39, 43, 58, 0.5294117647);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  margin: 0;
+  height: 100px;
+}
+
+.cabecalho_menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.cabecalho_menu li {
+  display: inline-block;
+  margin-right: 80px;
+}
+
+.cabecalho_menu li:last-child {
+  margin-right: 0;
+}
+
+.cabecalho_menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  padding: 20px 20px;
+}
+
+@media (max-width: 650px) {
+  .cabecalho_menu {
+    flex-wrap: wrap;
+  }
+
+  .cabecalho_menu li {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .cabecalho_menu li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cabecalho_menu li a:hover {
+  color: #ccc;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+  text-transform: uppercase;
+}
+
+.content p {
+  margin-bottom: 20px;
+  text-align: justify;
+  line-height: 2;
+  padding: 20px;
+}
+
+h3 {
+  margin-bottom: 20px;
+  text-align: justify;
+  line-height: 2;
+  padding: 20px;
+}
+
+.footer-container {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #716cff;
+  color: white;
+  font-size: small;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.footer-container p {
+  margin: 5px 0;
+}
+
+.footer-container .rodape__logo {
+  width: auto;
+  height: 50px;
+}
+
+@media (max-width: 680px) {
+  .wrapper {
+    min-width: 950px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}

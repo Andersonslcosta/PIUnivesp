@@ -1,0 +1,225 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  background: #f6f6f6;
+  font-family: "Lato", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.logo-container {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
+}
+
+.cabecalho_logo {
+  height: 100px;
+  width: auto;
+}
+
+.cabecalho {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(39, 43, 58, 0.5294117647);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px;
+  margin: 0;
+  height: 100px;
+}
+
+.cabecalho_menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.cabecalho_menu li {
+  display: inline-block;
+  margin-right: 80px;
+}
+
+.cabecalho_menu li:last-child {
+  margin-right: 0;
+}
+
+.cabecalho_menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  padding: 20px 20px;
+}
+
+/* Media query para ajustar o layout em telas menores */
+@media (max-width: 650px) {
+  .cabecalho_menu {
+    flex-wrap: wrap; /* Permite que os itens do menu passem para a próxima linha */
+  }
+
+  .cabecalho_menu li {
+    width: 100%; /* Define a largura dos itens do menu para ocupar toda a largura da tela */
+    margin-right: 0;
+    margin-bottom: 10px; /* Adiciona espaçamento entre os itens do menu */
+  }
+
+  .cabecalho_menu li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cabecalho_menu li a:hover {
+  color: #ccc; /* Altera a cor do texto ao passar o mouse sobre os itens do menu */
+}
+
+.page-title {
+  font-size: 16px; /* Ajusta o tamanho da fonte conforme necessário */
+  font-weight: bold; /* Torna o texto em negrito */
+  text-align: center; /* Centraliza o texto */
+  margin-top: 10px; /* Adiciona espaço superior para centralizar verticalmente */
+  text-transform: uppercase;
+  padding: 20px;
+  background-color: #716cff;
+  color: white;
+  letter-spacing: 5px;
+}
+
+.content p {
+  margin-bottom: 10px; /* Ajusta o espaçamento entre o parágrafo e o próximo item */
+  text-align: justify; /* Justifica o texto */
+  line-height: 2; /* Ajusta o espaçamento entre as linhas do texto */
+  padding: 30px;
+}
+
+h3 {
+  margin-bottom: 10px; /* Ajusta o espaçamento entre o h3 e o próximo item */
+  text-align: justify; /* Justifica o texto */
+  line-height: 2; /* Ajusta o espaçamento entre as linhas do texto */
+  padding: 30px; /* Adiciona um espaçamento interno ao redor do h3 */
+}
+
+.footer-container {
+  position: relative; /* Fixar o footer na parte inferior da janela de visualização */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #716cff;
+  color: white;
+  font-size: small;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  margin-top: 10px;
+}
+
+.footer-container p {
+  margin: 5px 0;
+}
+
+.footer-container .rodape__logo {
+  width: auto;
+  height: 50px;
+}
+
+@media (max-width: 949px) {
+  .wrapper {
+    min-width: 950px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+.btn {
+  margin: 0;
+  display: inline-block;
+  text-decoration: none;
+  padding: 20px 20px;
+  background-color: #716cff;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  margin-left: 30px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.btn .arrow {
+  display: inline-block;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.btn .arrow:hover {
+  color: #000;
+}
+
+#descricao p:last-of-type {
+  margin-bottom: 10px; /* Diminui a distância entre o parágrafo e as imagens */
+}
+
+/* Estilos para o carrossel de imagens */
+.image-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.image-wrapper img {
+  margin-right: 120px; /* Distância entre as imagens */
+  height: 280px; /* Ajuste a altura conforme necessário */
+  width: 200px; /* Ajusta a largura automaticamente para manter a proporção */
+  flex: 0 0 auto; /* Define que a imagem não deve encolher ou crescer */
+}
+
+.image-wrapper img:first-child {
+  margin-left: 50px; /* Adiciona uma margem à esquerda da primeira imagem */
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.arrow {
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+}
+
+.arrow.next,
+.arrow.prev {
+  cursor: pointer;
+  color: black;
+  padding: 20px;
+}
+
+#descricao .btn {
+  margin-top: 50px; /* Aumenta a distância entre as imagens e o botão */
+}
