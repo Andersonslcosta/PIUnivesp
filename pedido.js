@@ -164,7 +164,15 @@ function zerarQuantidadeNoCarrinho() {
 
     produtos.forEach(produto => {
         const quantidadeElement = produto.querySelector('.qtdProduto');
-        // Ajuste: Use innerHTML para limpar o conteúdo do elemento
-        quantidadeElement.innerHTML = '0'; 
+        quantidadeElement.textContent = '0'; // Zera a quantidade
+
+        const valorTotalElement = produto.querySelector('.valor-Total');
+        valorTotalElement.textContent = ''; // Zera o valor total
     });
+
+    // Também é importante atualizar o subtotal, frete, desconto e total final na interface
+    document.getElementById('subtotal').textContent = '';
+    document.getElementById('frete').textContent = '';
+    document.getElementById('desconto').textContent = '';
+    document.getElementById('total').textContent = '';
 }
