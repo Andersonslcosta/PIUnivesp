@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         quantidadeSpan.textContent = quantidade;
         const total = precoUnitario * quantidade;
-        valorTotalSpan.textContent = quantidade === 0 ? '' : `R$ ${total.toFixed(2)}`; // Define o valor total como uma string vazia se a quantidade for zero
+        valorTotalSpan.textContent = quantidade === 0 ? '' : `R$ ${total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`; // Formatar valor total
         calcularSubtotal();
     }
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let subtotal = 0;
         let quantidadeTotal = 0;
         document.querySelectorAll('.valor-Total').forEach(td => {
-            const valor = parseFloat(td.textContent.replace('R$', '').trim());
+            const valor = parseFloat(td.textContent.replace('R$', '').replace('.', '').replace(',', '.').trim());
             if (!isNaN(valor)) {
                 subtotal += valor;
             }
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Define o subtotal como uma string vazia se for igual a zero
-        document.getElementById('subtotal').textContent = subtotal === 0 ? '' : `R$ ${subtotal.toFixed(2)}`;
+        document.getElementById('subtotal').textContent = subtotal === 0 ? '' : `R$ ${subtotal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
         // Calcular desconto
         let desconto = 0.00;
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             freteText = '';
         } else if (subtotal < 200.00) {
             frete = 5.00;
-            freteText = `R$ ${frete.toFixed(2)}`;
+            freteText = `R$ ${frete.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         } else {
             frete = 0.00;
             freteText = 'Grátis';
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalComDesconto = subtotal - desconto + frete;
 
         // Define o total com desconto como uma string vazia se for igual a zero
-        document.getElementById('total').textContent = totalComDesconto === 0 ? '' : `R$ ${totalComDesconto.toFixed(2)}`;
+        document.getElementById('total').textContent = totalComDesconto === 0 ? '' : `R$ ${totalComDesconto.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         document.getElementById('desconto').textContent = descontoText;
         document.getElementById('frete').textContent = freteText;
     }

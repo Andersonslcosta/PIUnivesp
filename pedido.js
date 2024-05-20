@@ -85,8 +85,8 @@ function gerarPDF(produtos) {
     produtos.forEach(produto => {
         doc.text(produto.nome, margin, y);
         doc.text(`${produto.quantidade}`, margin + 70, y);
-        doc.text(`R$ ${produto.preco}`, margin + 100, y);
-        doc.text(`R$ ${produto.total}`, margin + 140, y);
+        doc.text(`R$ ${produto.preco.replace('.', ',')}`, margin + 100, y); // Formatação corrigida
+        doc.text(`R$ ${produto.total.replace('.', ',')}`, margin + 140, y); // Formatação corrigida
         y += lineSpacing * 2;
     });
 
@@ -97,13 +97,14 @@ function gerarPDF(produtos) {
 
     // Cálculo do subtotal
     const subtotal = produtos.reduce((acc, produto) => acc + parseFloat(produto.total), 0).toFixed(2);
+    const formattedSubtotal = `R$ ${subtotal.replace('.', ',')}`; // Formatação corrigida
 
     // Cálculo do frete
     let frete;
     let freteText;
     if (subtotal < 200) {
         frete = 5.00;
-        freteText = `R$ ${frete.toFixed(2)}`;
+        freteText = `R$ ${frete.toFixed(2).replace('.', ',')}`;
     } else {
         frete = 0.00;
         freteText = 'Grátis';
@@ -128,21 +129,25 @@ function gerarPDF(produtos) {
     }
 
     // Calcular o total final com desconto e frete
-    const totalFinal = (parseFloat(subtotal) + frete - desconto).toFixed(2);
+    const totalFinal = (subtotal + frete - desconto).toFixed(2);
+    const formattedTotalFinal = `R$ ${totalFinal.replace('.', ',')}`; // Formatação corrigida
+
+    // Formatar o desconto
+    const formattedDesconto = `R$ ${desconto.toFixed(2).replace('.', ',')}`; // Formatação corrigida
 
     // Resumo da compra
     doc.setFontSize(itemFontSize);
-    doc.text(`Subtotal: R$ ${subtotal}`, margin, y);
+    doc.text(`Subtotal: ${formattedSubtotal}`, margin, y);
     y += lineSpacing * 2;
     doc.text(`Frete: ${freteText}`, margin, y);
     y += lineSpacing * 2;
-    doc.text(`Desconto (${descontoText}): R$ ${desconto.toFixed(2)}`, margin, y);
+    doc.text(`Desconto (${descontoText}): ${formattedDesconto}`, margin, y);
     y += lineSpacing * 2;
     
     // Total Final em negrito
     doc.setFontSize(itemFontSize);
     doc.setFont("helvetica", "bold");
-    doc.text(`TOTAL FINAL: R$ ${totalFinal}`, margin, y);
+    doc.text(`Total Final: ${formattedTotalFinal}`, margin, y);
     y += lineSpacing * 4;
 
     // Adicionar o link para o WhatsApp
