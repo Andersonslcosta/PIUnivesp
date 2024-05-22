@@ -99,16 +99,9 @@ function gerarPDF(produtos) {
     const subtotal = produtos.reduce((acc, produto) => acc + parseFloat(produto.total), 0).toFixed(2);
     const formattedSubtotal = `R$ ${subtotal.replace('.', ',')}`; // Formatação corrigida
 
-    // Cálculo do frete
-    let frete;
-    let freteText;
-    if (subtotal < 200) {
-        frete = 5.00;
-        freteText = `R$ ${frete.toFixed(2).replace('.', ',')}`;
-    } else {
-        frete = 0.00;
-        freteText = 'Grátis';
-    }
+    // Frete fixo
+    const frete = 5.00;
+    const formattedFrete = `R$ ${frete.toFixed(2).replace('.', ',')}`; // Formatação corrigida
 
     // Cálculo do desconto
     let desconto = 0.00;
@@ -139,7 +132,7 @@ function gerarPDF(produtos) {
     doc.setFontSize(itemFontSize);
     doc.text(`Subtotal: ${formattedSubtotal}`, margin, y);
     y += lineSpacing * 2;
-    doc.text(`Frete: ${freteText}`, margin, y);
+    doc.text(`Frete: ${formattedFrete}`, margin, y);
     y += lineSpacing * 2;
     doc.text(`Desconto (${descontoText}): ${formattedDesconto}`, margin, y);
     y += lineSpacing * 2;
