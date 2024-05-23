@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Confeitaria Bolos da Helen</title>
+    <link rel="stylesheet" href="styleforvue.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="app">
+        <!-- Cabeçalho -->
+        <header class="cabecalho">
+            <a href="carrinhovue.html">
+                <img class="cabecalho_logo" src="../img/logo.ico" title="Ir para a página inicial da Confeitaria Bolos da Helen" alt="Confeitaria Bolos da Helen">
+            </a>
+            <span class="cabecalho_nome">Confeitaria Bolos da Helen</span>
+            <button class="cabecalho_menu_button">Menu</button>
+            <nav>
+                <ul class="cabecalho_menu">
+                    <li class="cabecalho__item-menu"><a href="indexvue.html">HOME</a></li>
+                    <li class="cabecalho__item-menu"><a href="carrinhovue.html">Produtos</a></li>
+                    <li class="cabecalho__item-menu"><a href="contatovue.html">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Conteúdo principal -->
+        <main> 
+            <div class="page-title"> Carrinho de Compras</div>
+            <div class="content">
+                <section>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Preço</th>
+                                <th>Quantidade</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr v-for="(item, index) in items" :key="index">
+                                <td>
+                                    <div class="product">
+                                        <img :src="'../img/' + item.imagem" :alt="'Imagem de ' + item.nome" width="100" height="130">
+                                        <div class="info">
+                                            <div class="name">{{ item.nome }}</div>
+                                            <div class="categoria">{{ item.categoria }}</div>
+                                            <div class="peso">{{ item.peso }}</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>R$ {{ item.preco.toFixed(2) }}</td>
+                                <td>
+                                    <div class="qtde">
+                                        <button @click="diminuir(index)"><i class="bx bx-minus"></i></button>
+                                        <span class="qtdProduto">{{ item.quantidade }}</span>
+                                        <button @click="aumentar(index)"><i class="bx bx-plus"></i></button>
+                                    </div>
+                                </td>
+                                <td class="valor-Total">{{ item.total === 0 ? '' : 'R$ ' + item.total.toFixed(2) }}</td>
+                                <td>
+                                    <button @click="removerItem(index)"><i class="bx bx-x"></i></button>
+                                </td>
+                            </tr>                                           
+                        </tbody>
+                    </table>
+                </section>
+                <aside> 
+                    <div class="box">
+                        <header>Resumo do Pedido</header>
+                        <div class="info">
+                            <div><span>Sub-Total</span><span id="subtotal"></span></div>
+                            <div><span>Frete</span><span id="frete"></span></div>
+                            <div><span>Desconto</span><span id="desconto"></span></div>
+                        </div>
+                        <footer>    
+                            <div><span>Total</span><span id="total"></span></div>
+                        </footer>
+                    </div>
+                    <button @click="limparCarrinho"> Limpar Carrinho</button>
+                    <button id="finalizarPedidoBtn">Finalizar Pedido</button>
+                </aside>
+            </div>
+        </main>
+        <footer class="footer-container">
+            <a id="about" href="../README.md">Sobre o Projeto</a>
+            <p>&copy; 2024 - by DRP01-PJI110-SALA-003GRUPO-019</p>
+            <p class="ownerProject">Anderson S L Costa-2221743; Barbara S Garcia-2217449; <br>Ezequiel A Soares-2205234; Flarranyelly K S Guimarães-2208102; <br>Gustavo M França-2225338; Ieda G A Cosmai-2215576; <br>Leonardo S Andrade-2206621; Vanessa M S Llona-2211551</p>
+            <p class="rodape__copyright">&copy; Copyright Confeitaria Bolos da Helen</p>
+            <img src="../img/logo.jpeg" alt="Logo da Confeitaria Bolos da Helen" class="rodape__logo">
+        </footer>
+    </div>
+
+    <!-- Scripts Vue.js -->
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script> <!-- Para trazer imagem para um PDF!-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script> <!-- Biblioteca para Gerar PDF!-->
+    <script src="stylevue.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Confeitaria Bolos da Helen</title>
+    <link rel="stylesheet" href="../home.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="../scroll.js" defer></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            template: `
+                <div>
+                    <div class="logo-container">
+                        <img class="cabecalho_logo" src="../img/logo2.jpeg" title="Home" alt="Confeitaria Bolos da Helen">
+                    </div>
+                    <header class="cabecalho">
+                        <nav id="MenuItens">
+                            <ul class="cabecalho_menu">
+                                <li class="cabecalho__item-menu"><a href="indexvue.html">Home</a></li>
+                                <li class="cabecalho__item-menu"><a href="carrinhovue.html">Produtos</a></li>
+                                <li class="cabecalho__item-menu"><a href="contatovue.html">Contato</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+                    
+                    <main> 
+                        <div class="page-title">Bolos da Helen</div>
+                        <div class="content">
+                            <section id="descricao">
+                                <div class="col-2">
+                                    <p>A Confeitaria Bolos da Helen é um local especializado na produção de bolos artesanais, tortas deliciosas e doces personalizados. Fundada em 2010, tornou-se um ponto de referência para os amantes da culinária doce em toda a região. Nossa confeitaria é focada no delivery, para o público de Mauá e região. Trabalhamos com ingredientes frescos e de alta qualidade, garantindo sempre o sabor mais delicioso em cada pedaço. Venha nos fazer uma visita e descubra por que somos conhecidos como a melhor confeitaria da região. Experimente nossos deliciosos bolos e doces e faça parte da nossa história!</p>
+                                    <h3>Delicie-se com nossos bolos e doces artesanais!</h3>
+                                    <p>Descubra uma explosão de sabores feitos com amor e cuidado. Desde bolos decorados até docinhos irresistíveis, temos opções para satisfazer todos os paladares. <br> Experimente agora e deixe-se levar pela tentação dos nossos deliciosos quitutes. Faça já sua encomenda e surpreenda-se com o sabor!</p>
+                                    <br>
+                                    
+                                    <div class="image-carousel">
+                                        <div class="image-wrapper">
+                                            <img src="../img/Torta banoffe.jpg" alt="Imagem de torta banoffe">
+                                            <img src="../img/Bolo de Maça Canela e Nozes.jpeg" alt="Imagem de bolo de Maça Canela e Nozes">
+                                            <img src="../img/Bolo Cenoura com Cobertura de Brigadeiro.jpg" alt="Imagem de bolo de Cenoura com Cobertura de Brigadeiro">
+                                            <img src="../img/Bolo Chocolate com Cobertura de Brigadeiro.jpg" alt="Imagem de um bolo Chocolate com Cobertura de Brigadeiro">
+                                            <img src="../img/Bolo Fuba com Goiabada.jpg" alt="Imagem de bolo de fubá com goiabada">
+                                            <img src="../img/Coxinha de Morango.jpg" alt="Imagem de coxinha de Morango">
+                                            <img src="../img/Pudinzinho.jpg" alt="Imagem de Pudim">
+                                            <img src="../img/redvelvet.jpg" alt="Imagem de Bolo RedVelvet">
+                                            <img src="../img/Torta de Limão.jpg" alt="Imagem de Torta de Limão">
+                                            <img src="../img/Torta Maracuja com Chocolate.jpg" alt="Imagem de Torta de Maracujá com Chocolate">
+                                            <img src="../img/Torta Duo.jpg" alt="Imagem de Torta duo">
+                                            <img src="../img/Bolo Pink Lemonade.png" alt="Imagem de Bolo Pink Limonade">
+                                            <img src="../img/Bolo Prestígio.png" alt="Imagem de Bolo Prestígio">
+                                            <img src="../img/Pão de Mel (recheio).jpg" alt="Imagem de Pão de Mel">
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <span class="arrow prev">&#8592;</span>
+                                            <span class="arrow next">&#8594;</span>
+                                        </div>
+                                    </div>                
+                                    <br>
+                                    <a href="carrinho.html" class="btn"><b>Acesse nossos produtos, confira os valores e faça seu pedido <span class="arrow">&#8594;</span></b></a>
+                                </div>
+                            </section>
+                        </div>
+                    </main>
+                    
+                    <footer class="footer-container">
+                        <a id="about" href="../README.md">Sobre o Projeto</a>
+                        <p>&copy; 2024 - by DRP01-PJI110-SALA-003GRUPO-019</p>
+                        <p class="ownerProject">Anderson S L Costa-2221743; Barbara S Garcia-2217449; <br>Ezequiel A Soares-2205234; Flarranyelly K S Guimarães-2208102; <br>Gustavo M França-2225338; Ieda G A Cosmai-2215576; <br>Leonardo S Andrade-2206621; Vanessa M S Llona-2211551</p>
+                        <p class="rodape__copyright">&copy; Copyright Confeitaria Bolos da Helen</p>
+                        <img src="../img/logo.jpeg" alt="Logo da Confeitaria Bolos da Helen" class="rodape__logo">
+                    </footer>
+                </div>
+            `
+        }).mount('#app')
+    </script>
+</body>
+</html>
