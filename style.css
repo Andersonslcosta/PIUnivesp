@@ -306,10 +306,6 @@ html, body {
   position: relative;
 }
 
-.content {
-  padding-bottom: 100px; /* Altura do footer */
-}
-
 .footer-container {
   position: relative;
   left: 0;
@@ -324,29 +320,30 @@ html, body {
   align-items: center;
   justify-content: space-between;
   z-index: 1000; /* Garante que o footer fique acima do conteúdo, se houver */
+  flex-wrap: wrap; /* Permite que os itens se ajustem em múltiplas linhas se necessário */
+  gap: 10px; /* Adiciona espaçamento entre todos os itens diretamente filhos de .footer-container */
 }
 
 .footer-container p {
-  margin: 5px 0;
+  margin: 10px 0; /* Aumenta o espaço vertical entre os parágrafos */
+}
+
+.footer-container a {
+  margin: 10px 0; /* Adiciona espaço vertical ao redor dos links */
+  text-decoration: none !important; /* Remove o sublinhado */
+  color: white !important; /* Altera a cor para branco */
 }
 
 .footer-container .rodape__logo {
   width: auto;
   height: 50px;
+  margin: 10px 0; /* Adiciona espaço vertical ao redor da imagem */
 }
 
 @media (max-width: 949px) {
   .wrapper {
-    min-width: 950px; /* Define a largura mínima para 900px */
+    min-width: 950px; /* Define a largura mínima para 950px */
     width: 100%; /* Garante que a largura ocupe toda a largura disponível */
     margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
   }
-}
-thead th:nth-child(2),
-thead th:nth-child(3),
-thead th:nth-child(4),
-tbody td:nth-child(2),
-tbody td:nth-child(3),
-tbody td:nth-child(4) {
-  padding-left: 60px; /* Ajuste o valor conforme necessário */
 }/*# sourceMappingURL=style.css.map */

@@ -138,7 +138,11 @@ const app = Vue.createApp({
                     peso: '220g'
                 }
                 // Adicione mais produtos conforme necessário
-            ]
+            ],
+            formatter: new Intl.NumberFormat('pt-BR', { // Adicione o formatter aqui
+                style: 'currency',
+                currency: 'BRL',
+            })
         };
     },
     methods: {
@@ -154,26 +158,38 @@ const app = Vue.createApp({
         },
         atualizarTotal(index) {
             this.items[index].total = this.items[index].quantidade * this.items[index].preco;
+
+            // Encontra o elemento que exibe o total do item (CORRIGIDO)
+            const itemTotalElement = document.querySelector(`tbody tr:nth-child(${index + 1}) td:nth-child(4)`); 
+
+            // Formata o valor e atualiza o elemento
+            if (itemTotalElement) {
+                itemTotalElement.textContent = this.items[index].total === 0 ? '' : formatter.format(this.items[index].total);
+            }
+
             this.calcularSubtotal();
         },
         calcularSubtotal() {
             const quantidadeTotal = this.quantidadeTotal();
-            let subtotal = quantidadeTotal > 0 ? this.items.reduce((acc, item) => acc + item.total, 0) : "";
 
-            document.getElementById('subtotal').textContent = subtotal === "" ? subtotal : 'R$ ' + subtotal.toFixed(2);
-
+            // Verifica se a quantidade total é maior que zero ANTES de calcular o subtotal
             if (quantidadeTotal > 0) {
+                let subtotal = this.items.reduce((acc, item) => acc + item.total, 0);
+                document.getElementById('subtotal').textContent = this.formatter.format(subtotal);
+
                 const { desconto, descontoText } = this.calcularDesconto(subtotal);
                 const { frete, freteText } = this.calcularFrete(quantidadeTotal);
                 const totalComDesconto = this.calcularTotalComDesconto(subtotal, desconto, frete);
 
-                document.getElementById('total').textContent = isNaN(totalComDesconto) ? "" : 'R$ ' + totalComDesconto.toFixed(2);
+                document.getElementById('total').textContent = this.formatter.format(totalComDesconto);
                 document.getElementById('desconto').textContent = descontoText;
-                document.getElementById('frete').textContent = freteText;
+                document.getElementById('frete').textContent = freteText === '' ? '' : this.formatter.format(frete);
             } else {
+                // Se a quantidade total for zero, limpa os campos
+                document.getElementById('subtotal').textContent = "";
                 document.getElementById('total').textContent = "";
                 document.getElementById('desconto').textContent = "";
-                document.getElementById('frete').textContent = "";
+                document.getElementById('frete').textContent = ""; 
             }
         },
         calcularDesconto(subtotal) {
@@ -222,6 +238,7 @@ const app = Vue.createApp({
         quantidadeTotal() {
             return this.items.reduce((acc, item) => acc + item.quantidade, 0);
         },
+        
         limparCarrinho() {
             this.items.forEach(item => {
                 item.quantidade = 0;
@@ -368,19 +385,25 @@ const app = Vue.createApp({
                 item.quantidade = 0;
                 item.total = 0;
             });
-
-            // Também é importante atualizar o subtotal na interface
-            this.calcularSubtotal();
+            this.calcularSubtotal(); // Atualiza a interface
         },
         removerItem(index) {
-            this.items.splice(index, 1);
-            this.calcularSubtotal();
+            // Zera a quantidade e o total do item
+            this.items[index].quantidade = 0;
+            this.items[index].total = 0;
+            this.calcularSubtotal(); // Recalcula o subtotal
         }
     },
     mounted() {
         const finalizarPedidoBtn = document.getElementById('finalizarPedidoBtn');
         finalizarPedidoBtn.addEventListener('click', this.finalizarPedido);
     }
+});
+
+// Formatador de moeda global
+const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
 });
 
 app.mount('#app');

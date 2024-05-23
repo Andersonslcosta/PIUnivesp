@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,186 +9,184 @@
 }
 
 body {
-  background: #f6f6f6;
-  font-family: "Lato", "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-body > header {
-  color: white;
-  background-color: rgba(39, 43, 58, 0.5294117647);
-  font-size: 20px;
-  padding: 30px 0;
-  display: flex;
-  position: absolute;
-  justify-content: center;
-}
-body > main {
-  background-color: rgb(255, 255, 255);
-}
-body > main .page-title {
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 50px 0;
-  text-align: center;
-  padding: 20px 20px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  background: #716cff;
-  letter-spacing: 5px;
-  color: white;
-}
-body > main .content {
-  display: flex;
-}
-body > main .content section {
-  flex: 1;
-  padding: 30px 30px;
-}
-body > main .content aside {
-  min-width: 250px;
-  padding: 20px 20px;
-}
-
-button {
-  cursor: pointer;
+  background: #ffffff;
   font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Estilos para o cabeçalho */
-.cabecalho {
+/* Cabeçalho */
+.logo-container {
+  width: 100%;
+  background-color: #fff;
   display: flex;
-  position: fixed;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba(39, 43, 58, 0.5294117647);
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 0; /* Remover todo o preenchimento */
-  margin: 0; /* Remover toda a margem */
-  height: 100px; /* Definir a altura do cabeçalho */
-  position: relative; /* Adiciona posição relativa */
+  justify-content: center;
+  padding: 10px 0px;
 }
 
 .cabecalho_logo {
-  height: 80px; /* Definir a altura da imagem como 80 pixels */
-  width: 100px; /* Definir a largura da imagem como 100 pixels */
-  margin-left: 25px; /* Manter a mesma margem à esquerda */
+  height: 100px;
+  width: auto;
 }
 
-.cabecalho_menu {
-  list-style-type: none;
-  margin-right: 40px;
+header.cabecalho {
+  background-color: rgba(39, 43, 58, 0.53);
+  color: white;
+  text-transform: uppercase;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabecalho_nome-container {
+  text-align: center;
+  padding: 14px 0;
+}
+
+.cabecalho_nome {
+  font-size: 18px;
+}
+
+/* Menu */
+.cabecalho_menu_button {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.cabecalho_menu,
+.mobile_menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center; /* Centraliza itens do menu */
 }
 
 .cabecalho_menu li {
   display: inline-block;
+  padding: 0 10px;
 }
 
-.cabecalho_menu li a {
-  text-decoration: none; /* Remover a decoração dos links */
+.cabecalho_menu li a,
+.mobile_menu li a {
   color: white;
-  font-size: 15px;
-  margin-right: 40px; /* Adicionar espaçamento entre os itens */
-  display: inline-block;
+  text-decoration: none;
+  display: block; /* Garante que o link ocupe toda a área do item */
+  padding: 10px; /* Espaçamento interno para melhor clique */
 }
 
-.cabecalho_menu li:last-child a {
-  margin-right: 0; /* Remover margem direita do último item */
+.mobile_menu {
+  display: none;
 }
 
-.cabecalho_menu_button {
-  display: none; /* Ocultar o botão do menu */
-  margin-right: 20px;
+.mobile_menu.show {
+  display: block;
 }
 
-.cabecalho_nome {
-  position: absolute; /* Torna o elemento absoluto */
-  left: 50%; /* Define a posição esquerda como 50% */
-  transform: translateX(-50%); /* Move o elemento de volta metade de sua largura */
-  color: white; /* Cor do texto */
-}
-
-/* Media query para tela menor que 910px */
-@media screen and (max-width: 960px) {
+/* Estilos para dispositivos móveis */
+@media (max-width: 500px) {
   .cabecalho_menu {
     display: none;
   }
+
   .cabecalho_menu_button {
-    display: none; /* Ocultar o botão do menu */
-    margin-right: 20px;
-    background-color: #8d8d8d;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: rgb(255, 255, 255);
-    border: 2px rgb(139, 139, 139); /* Adiciona borda sólida preta */
-    border-radius: 10px; /* Arredonda os cantos com raio de 10px */
-    padding: 10px 20px;
-    font-size: 15px;
-    cursor: pointer;
-    margin-left: auto; /* Adiciona margem à direita */
-  }
-  .cabecalho_menu.show-menu {
-    display: block;
-  }
-  .cabecalho_menu.show-menu li {
     display: block;
   }
 }
+
+/* Separador */
+.separator {
+  border-top: 2px solid #b9b9b9;
+  width: 100%;
+  padding: 10px;
+}
+
+/* Conteúdo principal */
+main {
+  background-color: #fff;
+  padding-top: 10px;
+}
+
+.page-title {
+  background: #716cff;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
-}
-table thead tr {
-  border-bottom: 3px solid #eee;
-  margin-right: 50px;
-}
-table thead tr th {
-  text-align: left;
-  padding-bottom: 10px;
-  text-transform: uppercase;
-  color: #b9b9b9;
-}
-table tbody tr {
-  border-bottom: 3px solid #eee;
-}
-table tbody tr:last-child {
-  border: 0;
-}
-table tbody tr td {
-  padding: 30px 0;
+  table-layout: fixed; /* Distribui o espaço igualmente entre as colunas */
 }
 
+thead th {
+  text-align: left;
+  padding: 20px;
+  margin-left: 30px; /* Margem à esquerda para todos os th */
+  border-bottom: 2px solid #ccc; 
+}
+thead th:first-child { /* Seleciona apenas o primeiro <th> */
+  padding-left: 40px; /* Adiciona o espaçamento interno à esquerda */
+}
+
+tbody td {
+  text-align: left;
+  padding: 20px;
+  margin-left: 30px; /* Margem à esquerda para todos os td */
+  border-bottom: 1px solid #eee; 
+}
+
+/* Estilização dos produtos */
 .product {
   display: flex;
   align-items: center;
 }
+
 .product img {
   border-radius: 6px;
+  width: 130px; 
+  height: auto; 
+  margin-left: 20px; /* Espaçamento entre a imagem e as informações */
 }
+
 .product .info {
-  margin-left: 20px;
+  margin-left: 30px;
 }
-.product .info .name {
+
+.product .name {
   font-size: 15px;
   text-transform: uppercase;
   font-family: "Lato", sans-serif;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* Reduz o espaçamento */
 }
-.product .info .category {
+
+.product .category,
+.product .peso {
   color: #666;
   font-size: 10px;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: "Lato", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: "Lato", Impact, Haettenschweiler, "Arial Narrow Bold",
+    sans-serif;
 }
 
-.qty {
+/* Estilização da quantidade */
+.qtde {
   background: #eee;
   display: inline-flex;
-  padding: 0 0;
+  padding: 0;
   justify-content: space-around;
   align-items: center;
   min-width: 60px;
@@ -195,10 +194,12 @@ table tbody tr td {
   overflow: hidden;
   height: 30px;
 }
-.qty span {
+
+.qtde span {
   margin: 0 10px;
 }
-.qty button {
+
+.qtde button {
   display: flex;
   align-items: center;
   background: transparent;
@@ -206,50 +207,82 @@ table tbody tr td {
   padding: 0 10px;
   font-size: 20px;
   height: 100%;
+  cursor: pointer; /* Adiciona cursor de ponteiro */
 }
-.qty button:hover {
+
+.qtde button:hover {
   background: #ddd;
 }
 
-.remove {
-  background: #eee;
-  border: 0;
+/* Estilização do botão de remover */
+.remover-item .bx.bx-x { /* Estilos para o ícone dentro do botão de remover */
   width: 30px;
   height: 30px;
-  border-radius: 100%;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  color: #222;
 }
-.remove:hover {
+
+.remover-item { /* Seletor para todos os botões ou um seletor mais específico se necessário */
+  background: #eee;
+  border: 0;
+  border-radius: 20px; /* Ou o valor que você está usando para seus outros botões */
+  /* ... outros estilos do seu botão ... */
+}
+
+.remover-item:hover {
   background: #ddd;
 }
 
+@media (max-width: 768px) { /* Ajuste o breakpoint conforme necessário */
+  table {
+    table-layout: auto; /* Permite que a tabela se ajuste ao conteúdo */
+    width: 100%; /* Ocupa toda a largura disponível */
+  }
+
+  tbody {
+    display: block; /* Permite a rolagem horizontal */
+    overflow-x: auto; 
+  }
+}
+
+/* Estilização da seção lateral */
+/* Estilização da seção lateral */
 aside {
-  max-width: 50%; /* Adjust the percentage as needed */
-  margin-left: 30px; /* Maintain desired margin */
+  max-width: 250px;
+  margin-left: 30px;
   text-transform: uppercase;
   font-family: "Lato", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  margin-bottom: 30px; /* Adiciona espaço entre o aside e o footer */
 }
+
 aside .box {
   margin-bottom: 15px;
-  border: 1px transparent #ccc;
   background: #eee;
   color: #222;
+  border-radius: 8px; /* Cantos arredondados */
 }
+
 aside .box header {
   padding: 25px 20px;
   font-size: 14px;
   font-weight: bold;
-  border-bottom: 1px solid #ccc;
   background-color: #716cff;
   color: white;
+  border-bottom: 1px solid #ccc;
+  border-radius: 8px 8px 0 0; /* Cantos superiores arredondados */
 }
+
 aside .box .info {
   padding: 20px;
   font-size: 12px;
 }
+
 aside .box .info > div {
   display: flex;
   justify-content: space-between;
@@ -257,29 +290,20 @@ aside .box .info > div {
   margin-bottom: 10px;
   color: #6d6d6d;
 }
-aside .box .info > div:last-child {
-  margin: 0;
-}
-aside .box .info button {
-  color: #8783ff;
-  background: transparent;
-  border: 0;
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-}
+
 aside .box footer > div {
   padding: 20px;
-  background: rgba(39, 43, 58, 0.5294117647);
+  background: #272b3a87;
   color: white;
   font-size: 14px;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
+  border-radius: 0 0 2px 2px; /* Cantos inferiores arredondados */
 }
+
 aside > button {
   margin-bottom: 8px;
-  border: 0;
   padding: 15px 0;
   color: white;
   background: #716cff;
@@ -288,28 +312,21 @@ aside > button {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 15px;
-  text-transform: uppercase;
   font-weight: bold;
-  font-family: "Lato", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  border: none; /* Remove a borda padrão do botão */
+  border-radius: 2px; /* Cantos arredondados */
+  cursor: pointer; 
 }
+
 aside > button:hover {
-  background: rgba(39, 43, 58, 0.5294117647);
+  background: #272b3a87;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
+section {
+  margin-bottom: 30px; /* Adiciona espaço entre a tabela e o aside */
 }
 
-.wrapper {
-  min-height: 100%;
-  position: relative;
-}
-
-.content {
-  padding-bottom: 100px; /* Altura do footer */
-}
-
+/* Rodapé */
 .footer-container {
   position: relative;
   left: 0;
@@ -324,29 +341,31 @@ html, body {
   align-items: center;
   justify-content: space-between;
   z-index: 1000; /* Garante que o footer fique acima do conteúdo, se houver */
+  flex-wrap: wrap; /* Permite que os itens se ajustem em múltiplas linhas se necessário */
+  gap: 10px; /* Adiciona espaçamento entre todos os itens diretamente filhos de .footer-container */
 }
 
 .footer-container p {
-  margin: 5px 0;
+  margin: 10px 0; /* Aumenta o espaço vertical entre os parágrafos */
 }
+
+.footer-container a {
+  margin: 10px 0; /* Adiciona espaço vertical ao redor dos links */
+  text-decoration: none !important; /* Remove o sublinhado */
+  color: white !important; /* Altera a cor para branco */
+}
+
 
 .footer-container .rodape__logo {
   width: auto;
   height: 50px;
+  margin: 10px 0; /* Adiciona espaço vertical ao redor da imagem */
 }
 
 @media (max-width: 949px) {
   .wrapper {
-    min-width: 950px; /* Define a largura mínima para 900px */
+    min-width: 950px; /* Define a largura mínima para 950px */
     width: 100%; /* Garante que a largura ocupe toda a largura disponível */
     margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
   }
 }
-thead th:nth-child(2),
-thead th:nth-child(3),
-thead th:nth-child(4),
-tbody td:nth-child(2),
-tbody td:nth-child(3),
-tbody td:nth-child(4) {
-  padding-left: 60px; /* Ajuste o valor conforme necessário */
-}/*# sourceMappingURL=style.css.map */

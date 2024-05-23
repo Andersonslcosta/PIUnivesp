@@ -10,22 +10,33 @@
 </head>
 <body>
     <div id="app">
+        
         <!-- Cabeçalho -->
-        <header class="cabecalho">
+        <div class="logo-container">
             <a href="carrinhovue.html">
-                <img class="cabecalho_logo" src="../img/logo.ico" title="Ir para a página inicial da Confeitaria Bolos da Helen" alt="Confeitaria Bolos da Helen">
+              <img class="cabecalho_logo" src="../img/logo2.jpeg" title="Home" alt="Confeitaria Bolos da Helen">
             </a>
-            <span class="cabecalho_nome">Confeitaria Bolos da Helen</span>
-            <button class="cabecalho_menu_button">Menu</button>
+        </div>
+        <header class="cabecalho">
+            <div class="cabecalho_nome-container">
+              <span class="cabecalho_nome">Confeitaria Bolos da Helen</span>
+            </div>
+            <div class="separator"></div>
+            <button id="menuButton" class="cabecalho_menu_button">Menu</button>
             <nav>
-                <ul class="cabecalho_menu">
-                    <li class="cabecalho__item-menu"><a href="indexvue.html">HOME</a></li>
-                    <li class="cabecalho__item-menu"><a href="carrinhovue.html">Produtos</a></li>
-                    <li class="cabecalho__item-menu"><a href="contatovue.html">Contato</a></li>
-                </ul>
+              <ul class="cabecalho_menu">
+                <li class="cabecalho__item-menu"><a href="indexvue.html">HOME</a></li>
+                <li class="cabecalho__item-menu"><a href="carrinhovue.html">Produtos</a></li>
+                <li class="cabecalho__item-menu"><a href="contatovue.html">Contato</a></li>
+              </ul>
+              <ul class="mobile_menu">
+                <li class="cabecalho__item-menu"><a href="indexvue.html">HOME</a></li>
+                <li class="cabecalho__item-menu"><a href="carrinhovue.html">Produtos</a></li>
+                <li class="cabecalho__item-menu"><a href="contatovue.html">Contato</a></li>
+              </ul>
             </nav>
         </header>
-
+          
         <!-- Conteúdo principal -->
         <main> 
             <div class="page-title"> Carrinho de Compras</div>
@@ -38,15 +49,14 @@
                                 <th>Preço</th>
                                 <th>Quantidade</th>
                                 <th>Total</th>
-                                <th></th>
+                                <th></th> 
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr v-for="(item, index) in items" :key="index">
                                 <td>
                                     <div class="product">
-                                        <img :src="'../img/' + item.imagem" :alt="'Imagem de ' + item.nome" width="100" height="130">
+                                        <img :src="'../img/' + item.imagem" :alt="'Imagem de ' + item.nome">
                                         <div class="info">
                                             <div class="name">{{ item.nome }}</div>
                                             <div class="categoria">{{ item.categoria }}</div>
@@ -54,7 +64,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>R$ {{ item.preco.toFixed(2) }}</td>
+                                <td>{{ this.formatter.format(item.preco) }}</td> 
                                 <td>
                                     <div class="qtde">
                                         <button @click="diminuir(index)"><i class="bx bx-minus"></i></button>
@@ -62,9 +72,11 @@
                                         <button @click="aumentar(index)"><i class="bx bx-plus"></i></button>
                                     </div>
                                 </td>
-                                <td class="valor-Total">{{ item.total === 0 ? '' : 'R$ ' + item.total.toFixed(2) }}</td>
+                                <td class="valor-Total">{{ item.total === 0 ? '' : formatter.format(item.total) }}</td>
                                 <td>
-                                    <button @click="removerItem(index)"><i class="bx bx-x"></i></button>
+                                    <button class="remover-item" @click="removerItem(index)">
+                                        <i class="bx bx-x"></i>
+                                    </button>
                                 </td>
                             </tr>                                           
                         </tbody>
@@ -101,5 +113,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script> <!-- Para trazer imagem para um PDF!-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script> <!-- Biblioteca para Gerar PDF!-->
     <script src="stylevue.js"></script>
+    <script src="scrollvue.js"></script>
 </body>
-</html>
+</html> 
