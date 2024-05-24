@@ -120,16 +120,26 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1000;
+  z-index: 1000; /* Garante que o footer fique acima do conteúdo, se houver */
+  flex-wrap: wrap; /* Permite que os itens se ajustem em múltiplas linhas se necessário */
+  gap: 10px; /* Adiciona espaçamento entre todos os itens diretamente filhos de .footer-container */
 }
 
 .footer-container p {
-  margin: 5px 0;
+  margin: 10px 0; /* Aumenta o espaço vertical entre os parágrafos */
 }
+
+.footer-container a {
+  margin: 10px 0; /* Adiciona espaço vertical ao redor dos links */
+  text-decoration: none !important; /* Remove o sublinhado */
+  color: white !important; /* Altera a cor para branco */
+}
+
 
 .footer-container .rodape__logo {
   width: auto;
   height: 50px;
+  margin: 10px 0; /* Adiciona espaço vertical ao redor da imagem */
 }
 
 @media (max-width: 680px) {
