@@ -407,3 +407,48 @@ const formatter = new Intl.NumberFormat('pt-BR', {
 });
 
 app.mount('#app');
+
+document.getElementById('finalizarPedidoBtn').addEventListener('click', function() {
+    // Capturar os dados do cliente (isso pode ser feito através de um modal ou formulário no frontend)
+    let nomeCliente = prompt("Digite seu nome:");
+    let emailCliente = prompt("Digite seu email:");
+    let telefoneCliente = prompt("Digite seu telefone:"); // Novo campo telefone
+    let enderecoCliente = prompt("Digite seu endereço:");
+    let dataDaEntrega = prompt("Digite a data da entrega (AAAA-MM-DD):"); // Novo campo data_da_entrega
+
+    // Validar se os campos estão preenchidos
+    if (!nomeCliente || !emailCliente || !telefoneCliente || !enderecoCliente || !dataDaEntrega) {
+        alert("Por favor, preencha todos os campos!");
+        return;
+    }
+
+    // Pegar os dados do carrinho
+    let itens = [];
+    document.querySelectorAll('tbody tr').forEach(function(row) {
+        let produtoNome = row.querySelector('.name').innerText;
+        let quantidade = parseInt(row.querySelector('.qtdProduto').innerText);
+        let precoUnitario = parseFloat(row.querySelector('td[data-preco]').getAttribute('data-preco'));
+        let total = precoUnitario * quantidade;
+
+        if (quantidade > 0) {
+            itens.push({
+                produto_nome: produtoNome,
+                quantidade: quantidade,
+                preco_unitario: precoUnitario.toFixed(2),
+                total: total.toFixed(2)
+            });
+        }
+    });
+
+    // Preencher o formulário oculto com os dados
+    document.getElementById('nomeCliente').value = nomeCliente;
+    document.getElementById('emailCliente').value = emailCliente;
+    document.getElementById('telefoneCliente').value = telefoneCliente; // Novo campo telefone
+    document.getElementById('enderecoCliente').value = enderecoCliente;
+    document.getElementById('dataDaEntrega').value = dataDaEntrega; // Novo campo data_da_entrega
+    document.getElementById('totalPedido').value = document.getElementById('total').innerText.replace('R$ ', '');
+    document.getElementById('itensPedido').value = JSON.stringify(itens);
+
+    // Submeter o formulário
+    document.getElementById('pedidoForm').submit();
+});
