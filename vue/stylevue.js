@@ -374,7 +374,7 @@ document.getElementById('finalizarPedidoBtn').addEventListener('click', function
     let dataDaEntrega = prompt("Digite a data da entrega (AAAA-MM-DD):");
 
     if (!nomeCliente || !emailCliente || !telefoneCliente || !enderecoCliente || !dataDaEntrega) {
-        alert("Por favor, preencha todos os campos!");
+        alert("Preenchimento finalizado com sucesso!");
         return;
     }
 

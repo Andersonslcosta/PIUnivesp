@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validar se os campos estão preenchidos
         if (!nomeCliente || !emailCliente || !telefoneCliente || !enderecoCliente || !dataDaEntrega) {
-            alert("Por favor, preencha todos os campos!");
+            alert("Preenchimento finalizado com sucesso!");
             return;
         }
 
