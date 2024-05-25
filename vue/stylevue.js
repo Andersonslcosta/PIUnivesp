@@ -158,34 +158,22 @@ const app = Vue.createApp({
         },
         atualizarTotal(index) {
             this.items[index].total = this.items[index].quantidade * this.items[index].preco;
-
-            // Encontra o elemento que exibe o total do item (CORRIGIDO)
-            const itemTotalElement = document.querySelector(`tbody tr:nth-child(${index + 1}) td:nth-child(4)`); 
-
-            // Formata o valor e atualiza o elemento
-            if (itemTotalElement) {
-                itemTotalElement.textContent = this.items[index].total === 0 ? '' : formatter.format(this.items[index].total);
-            }
-
+            const itemTotalElement = document.querySelector(`tbody tr:nth-child(${index + 1}) td:nth-child(4)`);
+            itemTotalElement.textContent = this.items[index].total === 0 ? '' : this.formatter.format(this.items[index].total);
             this.calcularSubtotal();
         },
         calcularSubtotal() {
             const quantidadeTotal = this.quantidadeTotal();
-
-            // Verifica se a quantidade total é maior que zero ANTES de calcular o subtotal
             if (quantidadeTotal > 0) {
                 let subtotal = this.items.reduce((acc, item) => acc + item.total, 0);
                 document.getElementById('subtotal').textContent = this.formatter.format(subtotal);
-
                 const { desconto, descontoText } = this.calcularDesconto(subtotal);
                 const { frete, freteText } = this.calcularFrete(quantidadeTotal);
                 const totalComDesconto = this.calcularTotalComDesconto(subtotal, desconto, frete);
-
                 document.getElementById('total').textContent = this.formatter.format(totalComDesconto);
                 document.getElementById('desconto').textContent = descontoText;
                 document.getElementById('frete').textContent = freteText === '' ? '' : this.formatter.format(frete);
             } else {
-                // Se a quantidade total for zero, limpa os campos
                 document.getElementById('subtotal').textContent = "";
                 document.getElementById('total').textContent = "";
                 document.getElementById('desconto').textContent = "";
@@ -238,7 +226,6 @@ const app = Vue.createApp({
         quantidadeTotal() {
             return this.items.reduce((acc, item) => acc + item.quantidade, 0);
         },
-        
         limparCarrinho() {
             this.items.forEach(item => {
                 item.quantidade = 0;
@@ -247,7 +234,6 @@ const app = Vue.createApp({
             this.calcularSubtotal();
         },
         finalizarPedido() {
-            // Acesse os dados do carrinho diretamente do estado do Vue.js (this.items)
             const produtosNoCarrinho = this.items.filter(item => item.quantidade > 0);
 
             if (produtosNoCarrinho.length > 0) {
@@ -279,61 +265,46 @@ const app = Vue.createApp({
             doc.addImage(imagemBase64, 'JPEG', (doc.internal.pageSize.width - imgWidth) / 2, imageY, imgWidth, imgHeight); 
             let y = imageY + imgHeight + lineSpacing;
             y += lineSpacing * 1;
-
-            // Adicionar fundo colorido na linha "Bolos da Helen"
             doc.setFillColor('#716cff');
             doc.rect(0, y - 10, doc.internal.pageSize.width, 15, 'F'); 
             doc.setFontSize(headerFontSize);
             doc.setTextColor(255, 255, 255);
             doc.text('Bolos da Helen', margin, y);
             y += lineSpacing * 4;
-
-            // Título do recibo
             doc.setFontSize(titleFontSize);
             doc.setTextColor(0, 0, 0);
             doc.text('Recibo do Pedido', margin, y);
             y += lineSpacing * 2;
-
-            // Cabeçalho da tabela
-            doc.setFontSize(itemFontSize);
-            doc.text('Produto', margin, y);
-            doc.text('Qtd.', margin + 70, y);
-            doc.text('Preço', margin + 100, y);
-            doc.text('Total', margin + 140, y);
-            y += lineSpacing;
-
-            // Linha separadora
-            doc.setLineWidth(0.5);
-            doc.line(margin, y, margin + 170, y);
-            y += lineSpacing * 2;
-
-            // Itens do pedido (CORRIGIDO)
             doc.setFontSize(bodyFontSize);
-            produtos.forEach(item => { // Use "item" em vez de "produto"
-                doc.text(item.nome, margin, y);
+            produtos.forEach(item => {
+                const textWidth = doc.getTextWidth(item.nome); 
+                const maxTextWidth = 50;
+                if (textWidth > maxTextWidth) {
+                    const linhas = doc.splitTextToSize(item.nome, maxTextWidth);
+                    let linhaY = y; 
+                    linhas.forEach(linha => {
+                        doc.text(linha, margin, linhaY);
+                        linhaY += lineSpacing;
+                    });
+                    y = linhaY; 
+                } else {
+                    doc.text(item.nome, margin, y);
+                }
                 doc.text(`${item.quantidade}`, margin + 70, y);
                 doc.text(`R$ ${item.preco.toFixed(2).replace('.', ',')}`, margin + 100, y);
                 doc.text(`R$ ${item.total.toFixed(2).replace('.', ',')}`, margin + 140, y);
                 y += lineSpacing * 2;
             });
-
-            
-            // Linha separadora
             y += lineSpacing * -1;
             doc.line(margin, y, margin + 170, y);
             y += lineSpacing * 2;
-
-            // Cálculos (Subtotal, Frete, Desconto, Total Final)
             let subtotal = 0;
             produtos.forEach(item => {
-                subtotal += parseFloat(item.total); // Calcula o subtotal dentro do loop
+                subtotal += parseFloat(item.total); 
             });
-            
             const frete = 5.00;
-
             let desconto = 0.00;
             let descontoText = "";
-
             if (subtotal > 1000.00) {
                 desconto = subtotal * 0.10;
                 descontoText = "10%";
@@ -347,17 +318,11 @@ const app = Vue.createApp({
                 desconto = subtotal * 0.02;
                 descontoText = "2%";
             }
-
-            // Calcula o totalFinal FORA do loop
             const totalFinal = subtotal + frete - desconto; 
-
-            // Formatação dos valores para o PDF
             const formattedSubtotal = `R$ ${subtotal.toFixed(2).replace('.', ',')}`; 
             const formattedFrete = `R$ ${frete.toFixed(2).replace('.', ',')}`;
             const formattedDesconto = `R$ ${desconto.toFixed(2).replace('.', ',')}`;
             const formattedTotalFinal = `R$ ${totalFinal.toFixed(2).replace('.', ',')}`; 
-
-            // Resumo da compra
             doc.setFontSize(itemFontSize);
             doc.text(`Subtotal: ${formattedSubtotal}`, margin, y);
             y += lineSpacing * 2;
@@ -365,19 +330,13 @@ const app = Vue.createApp({
             y += lineSpacing * 2;
             doc.text(`Desconto (${descontoText}): ${formattedDesconto}`, margin, y);
             y += lineSpacing * 2;
-            
-            // Total Final em negrito
             doc.setFontSize(itemFontSize);
             doc.setFont("helvetica", "bold");
             doc.text(`Total Final: ${formattedTotalFinal}`, margin, y);
             y += lineSpacing * 4;
-
-            // Adicionar o link para o WhatsApp
             const linkWhatsApp = "https://api.whatsapp.com/send?phone=5511945390674&text=Ol%C3%A1%20Bolos%20da%20Helen,%20gostaria%20de%20fazer%20um%20or%C3%A7amento.";
-            doc.setTextColor(0, 0, 255); // Cor azul para o link
+            doc.setTextColor(0, 0, 255);
             doc.textWithLink("Envie seu pedido para o nosso WhatsApp", margin, y, {url: linkWhatsApp});
-            // ... (Resto do código da função gerarPDF) ...
-
             doc.save('recibo.pdf');
         },
         zerarQuantidadeNoCarrinho() {
@@ -385,13 +344,12 @@ const app = Vue.createApp({
                 item.quantidade = 0;
                 item.total = 0;
             });
-            this.calcularSubtotal(); // Atualiza a interface
+            this.calcularSubtotal();
         },
         removerItem(index) {
-            // Zera a quantidade e o total do item
             this.items[index].quantidade = 0;
             this.items[index].total = 0;
-            this.calcularSubtotal(); // Recalcula o subtotal
+            this.calcularSubtotal();
         }
     },
     mounted() {
@@ -400,7 +358,6 @@ const app = Vue.createApp({
     }
 });
 
-// Formatador de moeda global
 const formatter = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
@@ -408,21 +365,19 @@ const formatter = new Intl.NumberFormat('pt-BR', {
 
 app.mount('#app');
 
+// Código para o formulário
 document.getElementById('finalizarPedidoBtn').addEventListener('click', function() {
-    // Capturar os dados do cliente (isso pode ser feito através de um modal ou formulário no frontend)
     let nomeCliente = prompt("Digite seu nome:");
     let emailCliente = prompt("Digite seu email:");
-    let telefoneCliente = prompt("Digite seu telefone:"); // Novo campo telefone
+    let telefoneCliente = prompt("Digite seu telefone:");
     let enderecoCliente = prompt("Digite seu endereço:");
-    let dataDaEntrega = prompt("Digite a data da entrega (AAAA-MM-DD):"); // Novo campo data_da_entrega
+    let dataDaEntrega = prompt("Digite a data da entrega (AAAA-MM-DD):");
 
-    // Validar se os campos estão preenchidos
     if (!nomeCliente || !emailCliente || !telefoneCliente || !enderecoCliente || !dataDaEntrega) {
         alert("Por favor, preencha todos os campos!");
         return;
     }
 
-    // Pegar os dados do carrinho
     let itens = [];
     document.querySelectorAll('tbody tr').forEach(function(row) {
         let produtoNome = row.querySelector('.name').innerText;
@@ -440,15 +395,12 @@ document.getElementById('finalizarPedidoBtn').addEventListener('click', function
         }
     });
 
-    // Preencher o formulário oculto com os dados
     document.getElementById('nomeCliente').value = nomeCliente;
     document.getElementById('emailCliente').value = emailCliente;
-    document.getElementById('telefoneCliente').value = telefoneCliente; // Novo campo telefone
+    document.getElementById('telefoneCliente').value = telefoneCliente;
     document.getElementById('enderecoCliente').value = enderecoCliente;
-    document.getElementById('dataDaEntrega').value = dataDaEntrega; // Novo campo data_da_entrega
+    document.getElementById('dataDaEntrega').value = dataDaEntrega;
     document.getElementById('totalPedido').value = document.getElementById('total').innerText.replace('R$ ', '');
     document.getElementById('itensPedido').value = JSON.stringify(itens);
-
-    // Submeter o formulário
     document.getElementById('pedidoForm').submit();
 });

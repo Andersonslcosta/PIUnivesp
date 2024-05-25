@@ -127,7 +127,7 @@ main {
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* Distribui o espaço igualmente entre as colunas */
+  table-layout:auto; /* Distribui o espaço igualmente entre as colunas */
 }
 
 thead th {
@@ -254,8 +254,8 @@ tbody td {
 /* Estilização da seção lateral */
 /* Estilização da seção lateral */
 aside {
-  max-width: 250px;
-  margin-left: 30px;
+  max-width: 100%; /* Aumenta a largura do aside para 500px */
+  margin: 0 auto; /* Centraliza horizontalmente o aside */
   text-transform: uppercase;
   font-family: "Lato", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   margin-bottom: 30px; /* Adiciona espaço entre o aside e o footer */
@@ -275,7 +275,6 @@ aside .box header {
   background-color: #716cff;
   color: white;
   border-bottom: 1px solid #ccc;
-  border-radius: 8px 8px 0 0; /* Cantos superiores arredondados */
 }
 
 aside .box .info {
@@ -285,10 +284,18 @@ aside .box .info {
 
 aside .box .info > div {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Alinha os itens para esquerda e direita */
   font-weight: bold;
   margin-bottom: 10px;
   color: #6d6d6d;
+}
+
+aside .box .info > div span:first-child {
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+aside .box .info > div span:last-child {
+  text-align: right; /* Alinha o texto à direita */
 }
 
 aside .box footer > div {
@@ -298,8 +305,16 @@ aside .box footer > div {
   font-size: 14px;
   font-weight: bold;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Alinha os itens para esquerda e direita */
   border-radius: 0 0 2px 2px; /* Cantos inferiores arredondados */
+}
+
+aside .box footer > div span:first-child {
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+aside .box footer > div span:last-child {
+  text-align: right; /* Alinha o texto à direita */
 }
 
 aside > button {

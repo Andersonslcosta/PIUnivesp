@@ -80,10 +80,25 @@ function gerarPDF(produtos) {
     doc.line(margin, y, margin + 170, y);
     y += lineSpacing * 2;
 
-    // Produtos
-    doc.setFontSize(bodyFontSize);
-    produtos.forEach(produto => {
-        doc.text(produto.nome, margin, y);
+     // Produtos
+     doc.setFontSize(bodyFontSize);
+     produtos.forEach(produto => {
+         // Quebra de linha para nomes longos
+         const textWidth = doc.getTextWidth(produto.nome); 
+         const maxTextWidth = 50; // Defina a largura máxima que você quer permitir
+ 
+         if (textWidth > maxTextWidth) {
+             const linhas = doc.splitTextToSize(produto.nome, maxTextWidth);
+             let linhaY = y; 
+             linhas.forEach(linha => {
+                 doc.text(linha, margin, linhaY);
+                 linhaY += lineSpacing;
+             });
+             y = linhaY; // Atualiza a posição vertical
+         } else {
+             doc.text(produto.nome, margin, y);
+         }
+ 
         doc.text(`${produto.quantidade}`, margin + 70, y);
         doc.text(`R$ ${produto.preco.replace('.', ',')}`, margin + 100, y); // Formatação corrigida
         doc.text(`R$ ${produto.total.replace('.', ',')}`, margin + 140, y); // Formatação corrigida
@@ -122,11 +137,11 @@ function gerarPDF(produtos) {
     }
 
     // Calcular o total final com desconto e frete
-    const totalFinal = (subtotal + frete - desconto).toFixed(2);
+    const totalFinal = (parseFloat(subtotal) + frete - desconto).toFixed(2);
     const formattedTotalFinal = `R$ ${totalFinal.replace('.', ',')}`; // Formatação corrigida
 
     // Formatar o desconto
-    const formattedDesconto = `R$ ${desconto.toFixed(2).replace('.', ',')}`; // Formatação corrigida
+    const formattedDesconto = desconto > 0 ? `R$ ${desconto.toFixed(2).replace('.', ',')}` : ""; // Formatação corrigida
 
     // Resumo da compra
     doc.setFontSize(itemFontSize);
@@ -134,9 +149,12 @@ function gerarPDF(produtos) {
     y += lineSpacing * 2;
     doc.text(`Frete: ${formattedFrete}`, margin, y);
     y += lineSpacing * 2;
-    doc.text(`Desconto (${descontoText}): ${formattedDesconto}`, margin, y);
-    y += lineSpacing * 2;
-    
+
+    if (desconto > 0) {
+        doc.text(`Desconto (${descontoText}): ${formattedDesconto}`, margin, y);
+        y += lineSpacing * 2;
+    }
+
     // Total Final em negrito
     doc.setFontSize(itemFontSize);
     doc.setFont("helvetica", "bold");
