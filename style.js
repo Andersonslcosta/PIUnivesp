@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Calcular o total inicial
     calcularSubtotal();
 
-    document.getElementById('finalizarPedidoBtn').addEventListener('click', function() {
+    /* document.getElementById('finalizarPedidoBtn').addEventListener('click', function() {
         // Capturar os dados do cliente (isso pode ser feito através de um modal ou formulário no frontend)
         let nomeCliente = prompt("Digite seu nome:");
         let emailCliente = prompt("Digite seu email:");
@@ -161,5 +161,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Submeter o formulário
         document.getElementById('pedidoForm').submit();
-    });
+    }); */
 });

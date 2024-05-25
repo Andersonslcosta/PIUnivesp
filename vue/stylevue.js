@@ -366,7 +366,7 @@ const formatter = new Intl.NumberFormat('pt-BR', {
 app.mount('#app');
 
 // Código para o formulário
-document.getElementById('finalizarPedidoBtn').addEventListener('click', function() {
+/* document.getElementById('finalizarPedidoBtn').addEventListener('click', function() {
     let nomeCliente = prompt("Digite seu nome:");
     let emailCliente = prompt("Digite seu email:");
     let telefoneCliente = prompt("Digite seu telefone:");
@@ -403,4 +403,4 @@ document.getElementById('finalizarPedidoBtn').addEventListener('click', function
     document.getElementById('totalPedido').value = document.getElementById('total').innerText.replace('R$ ', '');
     document.getElementById('itensPedido').value = JSON.stringify(itens);
     document.getElementById('pedidoForm').submit();
-});
+}); */
